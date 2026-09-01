@@ -1,1 +1,14 @@
-﻿[{"relation":["delegate_permission/common.handle_all_urls"],"target":{"namespace":"android_app","package_name":"com.biblia.latinoamericana_catolica_con_audio","sha256_cert_fingerprints":["04:30:B0:3F:98:FE:C3:5E:40:3C:57:E3:D5:96:65:89:9B:35:0D:5C:4D:C5:8D:6B:DB:B4:46:2C:51:53:52:01"]}}]
+[
+	{
+		"relation": [
+			"delegate_permission/common.handle_all_urls"
+		],
+		"target": {
+			"namespace": "android_app",
+			"package_name": "com.mobincube.biblia_reina_valera_1960_letra_grande_gratis.sc_8PCCK7",
+			"sha256_cert_fingerprints": [
+				"04:30:B0:3F:98:FE:C3:5E:40:3C:57:E3:D5:96:65:89:9B:35:0D:5C:4D:C5:8D:6B:DB:B4:46:2C:51:53:52:01"
+			]
+		}
+	}
+]

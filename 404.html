@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblia Reina Valera 1960</title>
+        <!-- Open Graph / WhatsApp / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Biblia Reina Valera 1960 - Biblia Protestante">
+        <meta property="og:description" content="Lee la Biblia Reina Valera 1960, comparte versículos, y estudia la Palabra de Dios">
+        <meta property="og:image" content="https://bibliarv1960.github.io/banner-mi-fe.jpeg">
+
+        <!-- Twitter / X -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Biblia Reina Valera 1960 - Biblia Protestante">
+        <meta name="twitter:description" content="Tu app de Biblia protestante: Lectura bíblica, versículo del día, y compartición de versículos.">
+        <meta name="twitter:image" content="https://bibliarv1960.github.io/banner-mi-fe.jpeg">
+            <style>
+    <style>
+        :root {
+            --primary: #8B5A2B;
+            --on-primary: #FFFFFF;
+            --secondary: #D4AF37;
+            --surface: #FDFBF7;
+            --on-surface: #2C2A29;
+            --surface-variant: #F4EFE6;
+            --outline: #D7CFC4;
+            --shadow: rgba(44, 42, 41, 0.12);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--surface);
+            color: var(--on-surface);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 4px 50px var(--shadow);
+            max-width: 480px;
+            width: 100%;
+            padding: 32px;
+            text-align: center;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+        h1 { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
+        p { font-size: 16px; line-height: 1.5; color: #5F5A56; margin-bottom: 24px; }
+        .passage {
+            background: var(--surface-variant);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        .passage h2 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .passage .ref {
+            font-size: 14px;
+            color: #8B8680;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 12px;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform .15s, box-shadow .15s;
+        }
+        .btn:hover { transform: translateY(-1px); }
+        .btn-primary {
+            background: #023f6c;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+        }
+        .btn-secondary {
+            background: #023f6c;
+            color: #FFFFFF;
+            border: 1px solid #023f6c;
+        }
+        .hidden { display: none !important; }
+        footer {
+            margin-top: 24px;
+            font-size: 12px;
+            color: #A09A94;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="/logo.jpeg" alt="Biblia Reina Valera 1960" class="logo" />
+        <h1 id="title">Biblia Reina Valera 1960</h1>
+        <p id="desc">Tu Biblia protestante de confianza. Lectura diaria, versículo del día, y comparte la Palabra.</p>
+
+        <div id="passage" class="passage hidden">
+            <div class="ref" id="ref">PASAJE</div>
+            <h2 id="verse">Versículo</h2>
+        </div>
+
+        <a id="openApp" class="btn btn-primary hidden" href="#">Abrir en Santa Biblia</a>
+        <a id="playStore" class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.mobincube.biblia_lenguaje_actual_gratis_sin_internet">Descargar de Play Store</a>
+    </div>
+        <footer>© Biblia Reina Valera 1960</footer>
+
+    <script>
+        const books = [
+            "Génesis","Éxodo","Levítico","Números","Deuteronomio","Josué","Jueces","Rut",
+            "1 Samuel","2 Samuel","1 Reyes","2 Reyes","1 Crónicas","2 Crónicas","Esdras","Nehemías",
+            "Ester","Job","Salmos","Proverbios",
+            "Eclesiastés","Cantar de los Cantares","Isaías","Jeremías",
+            "Lamentaciones","Ezequiel","Daniel","Oseas","Joel","Amós","Abdías",
+            "Jonás","Miqueas","Nahúm","Habacuc","Sofonías","Hageo","Zacarías","Malaquías",
+            "Mateo","Marcos","Lucas","Juan","Hechos","Romanos","1 Corintios","2 Corintios",
+            "Gálatas","Efesios","Filipenses","Colosenses","1 Tesalonicenses","2 Tesalonicenses",
+            "1 Timoteo","2 Timoteo","Tito","Filemón","Hebreos","Santiago","1 Pedro","2 Pedro",
+            "1 Juan","2 Juan","3 Juan","Judas","Apocalipsis"
+        ];
+
+        function getPathParts() {
+            const p = window.location.pathname.replace(/\/$/, '');
+            const m = p.match(/\/reader\/(\d+)\/(\d+)/);
+            if (!m) return null;
+            const url = new URL(window.location.href);
+            return {
+                bookId: parseInt(m[1], 10),
+                chapterId: parseInt(m[2], 10),
+                verse: url.searchParams.get('verse') || ''
+            };
+        }
+
+        function isAndroid() {
+            return /Android/i.test(navigator.userAgent);
+        }
+
+        const data = getPathParts();
+        const title = document.getElementById('title');
+        const desc = document.getElementById('desc');
+        const passage = document.getElementById('passage');
+        const refEl = document.getElementById('ref');
+        const verseEl = document.getElementById('verse');
+        const openBtn = document.getElementById('openApp');
+        const storeBtn = document.getElementById('playStore');
+
+        if (data) {
+            const bookName = books[data.bookId - 1] || ('Libro ' + data.bookId);
+            const verseText = data.verse ? ':' + data.verse : '';
+            refEl.textContent = bookName + ' ' + (data.chapterId % 1000) + verseText;
+            verseEl.textContent = 'Has recibido un pasaje bíblico';
+            passage.classList.remove('hidden');
+            openBtn.classList.remove('hidden');
+            desc.textContent = 'Alguien quiere compartir este versículo contigo desde Biblia Reina Valera 1960.';
+
+            const appUrl = 'https://bibliarv1960.github.io/reader/' + data.bookId + '/' + (data.chapterId % 1000) + (data.verse ? '?verse=' + data.verse : '');
+            const intentUrl = 'intent://bibliarv1960.github.io/reader/' + data.bookId + '/' + (data.chapterId % 1000) + (data.verse ? '?verse=' + data.verse : '') + '#Intent;scheme=https;package=com.mobincube.biblia_lenguaje_actual_gratis_sin_internet;end';
+
+            openBtn.href = intentUrl;
+            openBtn.addEventListener('click', function(e) {
+                if (!isAndroid()) {
+                    e.preventDefault();
+                    alert('Abre este link desde tu dispositivo Android para verlo en la app.');
+                }
+            });
+
+            // Auto-intent en Android tras 1s
+            if (isAndroid()) {
+                setTimeout(function() {
+                    window.location.href = intentUrl;
+                }, 1000);
+                // Fallback: tras 4s, redirigir a Play Store si sigue aquí
+                setTimeout(function() {
+                    window.location.href = storeBtn.href;
+                }, 4500);
+            }
+        } else {
+            // Landing general
+            openBtn.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

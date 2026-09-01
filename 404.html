@@ -119,7 +119,7 @@
         </div>
 
         <a id="openApp" class="btn btn-primary hidden" href="#">Abrir en Santa Biblia</a>
-        <a id="playStore" class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.mobincube.biblia_lenguaje_actual_gratis_sin_internet">Descargar de Play Store</a>
+        <a id="playStore" class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.mobincube.biblia_reina_valera_1960_letra_grande_gratis.sc_8PCCK7">Descargar de Play Store</a>
     </div>
         <footer>© Biblia Reina Valera 1960</footer>
 
@@ -172,7 +172,7 @@
             desc.textContent = 'Alguien quiere compartir este versículo contigo desde Biblia Reina Valera 1960.';
 
             const appUrl = 'https://bibliarv1960.github.io/reader/' + data.bookId + '/' + (data.chapterId % 1000) + (data.verse ? '?verse=' + data.verse : '');
-            const intentUrl = 'intent://bibliarv1960.github.io/reader/' + data.bookId + '/' + (data.chapterId % 1000) + (data.verse ? '?verse=' + data.verse : '') + '#Intent;scheme=https;package=com.mobincube.biblia_lenguaje_actual_gratis_sin_internet;end';
+            const intentUrl = 'intent://bibliarv1960.github.io/reader/' + data.bookId + '/' + (data.chapterId % 1000) + (data.verse ? '?verse=' + data.verse : '') + '#Intent;scheme=https;package=com.mobincube.biblia_reina_valera_1960_letra_grande_gratis.sc_8PCCK7;end';
 
             openBtn.href = intentUrl;
             openBtn.addEventListener('click', function(e) {

@@ -8,13 +8,13 @@
         <meta property="og:type" content="website">
         <meta property="og:title" content="Biblia Reina Valera 1960 - Biblia Protestante">
         <meta property="og:description" content="Lee la Biblia Reina Valera 1960, comparte versículos, y estudia la Palabra de Dios">
-        <meta property="og:image" content="https://bibliarv1960-app.vercel.app/banner-mi-fe.jpeg">
+        <meta property="og:image" content="https://bibliarv1960.vercel.app/banner-mi-fe.jpeg">
 
         <!-- Twitter / X -->
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Biblia Reina Valera 1960 - Biblia Protestante">
         <meta name="twitter:description" content="Tu app de Biblia protestante: Lectura bíblica, versículo del día, y compartición de versículos.">
-        <meta name="twitter:image" content="https://bibliarv1960-app.vercel.app/banner-mi-fe.jpeg">
+        <meta name="twitter:image" content="https://bibliarv1960.vercel.app/banner-mi-fe.jpeg">
             <style>
     <style>
         :root {
@@ -171,8 +171,8 @@
             openBtn.classList.remove('hidden');
             desc.textContent = 'Alguien quiere compartir este versículo contigo desde Biblia Reina Valera 1960.';
 
-            const appUrl = 'https://bibliarv1960-app.vercel.app/reader/' + data.bookId + '/' + (data.chapterId % 1000) + (data.verse ? '?verse=' + data.verse : '');
-            const intentUrl = 'intent://bibliarv1960-app.vercel.app/reader/' + data.bookId + '/' + (data.chapterId % 1000) + (data.verse ? '?verse=' + data.verse : '') + '#Intent;scheme=https;package=com.mobincube.biblia_reina_valera_1960_letra_grande_gratis.sc_8PCCK7;end';
+            const appUrl = 'https://bibliarv1960.vercel.app/reader/' + data.bookId + '/' + (data.chapterId % 1000) + (data.verse ? '?verse=' + data.verse : '');
+            const intentUrl = 'intent://bibliarv1960.vercel.app/reader/' + data.bookId + '/' + (data.chapterId % 1000) + (data.verse ? '?verse=' + data.verse : '') + '#Intent;scheme=https;package=com.mobincube.biblia_reina_valera_1960_letra_grande_gratis.sc_8PCCK7;end';
 
             openBtn.href = intentUrl;
             openBtn.addEventListener('click', function(e) {
